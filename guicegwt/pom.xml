@@ -112,7 +112,7 @@
 						</goals>
 					</execution>
 				</executions>
-				<!-- Plugin configuration. There are many available options, see gwt-maven-plugin 
+				<!-- Plugin configuration. There are many available options, see gwt-maven-plugin
 					documentation at codehaus.org -->
 				<configuration>
 					<runTarget>sample.html</runTarget>
@@ -142,7 +142,7 @@
 				</dependencies>
 			</plugin>
 
-			<!-- Google Plugin for Eclipse (GPE) won't see the source generated above 
+			<!-- Google Plugin for Eclipse (GPE) won't see the source generated above
 				by requestfactory-apt unless it is exposed as an additional source dir -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -189,7 +189,20 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
+
+			<plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+					<warSourceDirectory>${basedir}/target/${project.build.finalName}</warSourceDirectory>
+          <path>/</path>
+        </configuration>
+      </plugin>
+
 		</plugins>
+
+
 	</build>
 	<repositories>
 		<repository>
